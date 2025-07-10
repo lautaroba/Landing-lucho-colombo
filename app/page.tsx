@@ -8,7 +8,8 @@ import { useEffect, useState } from "react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 // Import the TransformationCarousel component
 import { TransformationCarousel } from "@/components/transformation-carousel"
-import { WhatsAppTestimonials } from "@/components/whatsapp-testimonials"
+import WhatsAppCarousel from "@/components/whatsapp-testimonials"
+import { testimonialsMessages } from "@/lib/wp-chats"
 import { transformationItems } from "@/lib/cambios"
 
 export default function Home() {
@@ -205,8 +206,7 @@ export default function Home() {
                   </p>
                 </motion.div>
                 <div className="flex justify-center px-4 md:px-0">
-                  <WhatsAppTestimonials
-                    messages={[]}
+                  <WhatsAppCarousel Messages={testimonialsMessages}
                   />
                 </div>
               </div>
@@ -273,7 +273,7 @@ export default function Home() {
                 <div
                   className="calendly-inline-widget"
                   data-url="https://calendly.com/luchocolombotraining/llamada-gratuita"
-                  style={{ height: '1200px' }}
+                  style={{ height: '67rem' }}
                 ></div>
                 </div>
               
