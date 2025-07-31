@@ -8,9 +8,10 @@ import { useEffect, useState } from "react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 // Import the TransformationCarousel component
 import { TransformationCarousel } from "@/components/transformation-carousel"
-import WhatsAppCarousel from "@/components/whatsapp-testimonials"
-import { testimonialsMessages } from "@/lib/wp-chats"
+import WhatsAppCarousel from "@/components/testimonials"
+import { testimonialChats } from "@/lib/chats"
 import { transformationItems } from "@/lib/cambios"
+import SobreMi from "@/components/aboutme"
 
 export default function Home() {
   const [videoPlaying, setVideoPlaying] = useState(false)
@@ -41,6 +42,11 @@ export default function Home() {
     },
   }
 
+  const wordVariants = {
+    hidden: { color: "#ffffffff", fontWeight: 400 }, // gris normal
+    visible: { color: "#ffffffff", fontWeight: 700, backgroundColor: "#10b98185" }, // verde esmeralda y bold
+  }
+
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
@@ -53,8 +59,16 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.div className="lg:w-1/2 space-y-6" variants={fadeInUp}>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                ¿Sos un trabajador ocupado, que busca ganar masa muscular y perder grasa?
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                ¿Sos un trabajador ocupado que busca{" "}
+                <motion.span
+                  variants={wordVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  transition={{ duration: 0.5, delay: 1 }}
+                >
+                  ganar masa muscular y perder grasa
+                </motion.span>?
               </h1>
               <p className="text-lg md:text-xl text-gray-300">
                 En solo 12 semanas, transforma tu cuerpo con un plan 100% personalizado que se adapta a tu cuerpo y
@@ -68,7 +82,7 @@ export default function Home() {
                 >
                   AGENDAR REUNIÓN GRATUITA
                 </Button>
-              
+
               </motion.div>
             </motion.div>
 
@@ -79,7 +93,7 @@ export default function Home() {
               {!videoPlaying ? (
                 <div className="relative w-full h-full bg-gray-800 flex items-center justify-center">
                   <Image
-                    src="/logo.png"
+                    src="/PORTADA-VSL.jpg"
                     alt="Video thumbnail"
                     width={300}
                     height={350}
@@ -91,8 +105,8 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <div className="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center group-hover:bg-emerald-400 transition-colors">
-                      <Play size={36} className="text-white ml-2" />
+                    <div className="w-10 h-10 rounded-full bg-emerald-500/70 flex items-center justify-center group-hover:bg-emerald-400/70 transition-colors">
+                      <Play size={25} className="text-white ml-1" />
                     </div>
                   </motion.button>
                 </div>
@@ -104,15 +118,15 @@ export default function Home() {
                 </div>
               )}
             </motion.div>
-             <motion.div className="block lg:hidden" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  size="lg"
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-6 text-lg"
-                  onClick={() => document.getElementById("calendly")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  AGENDAR REUNIÓN GRATUITA
-                </Button>
-              </motion.div>
+            <motion.div className="block lg:hidden" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-6 text-lg"
+                onClick={() => document.getElementById("calendly")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                AGENDAR REUNIÓN GRATUITA
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -139,35 +153,7 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
             </motion.div>
-
-            <motion.div className="lg:w-2/3 space-y-6" variants={fadeInUp}>
-              <div className="inline-block bg-gray-100 px-4 py-2 rounded-full">
-                <h2 className="text-emerald-500 font-bold">SOBRE MI</h2>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold">LUCIANO COLOMBO</h2>
-              <p className="text-emerald-500 font-medium">@luchocolombotraining</p>
-
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  Profesor de Educación Física y Personal Trainer certificado a nivel internacional. A lo largo de mi
-                  carrera complementé mi formación con cursos relacionados a la nutrición, porque creo que el enfoque
-                  integral es clave para lograr resultados reales y sostenibles en el tiempo.
-                </p>
-                <p>
-                  Desde 2018 ayudo a transformar el cuerpo y la vida de muchas personas. Y sinceramente, no hay nada que
-                  me haga más feliz que ver esos cambios.
-                </p>
-                <p>
-                  Me mantengo en constante aprendizaje, ya que el mundo fitness evoluciona, y mi compromiso es seguir
-                  creciendo para dar lo mejor a cada persona que confia su proceso en mi trabajo y experiencia.
-                </p>
-                <p>
-                  Hace +5 años me dedico profesionalmente al coaching fitness. En este tiempo, la experiencia me enseño
-                  muchisimo sobre cómo funciona el cuerpo, cómo acompañar de forma personalizada a cada persona, y sobre
-                  todo, cómo guiar procesos que sean efectivos, saludables y duraderos.
-                </p>
-              </div>
-            </motion.div>
+            <SobreMi />
           </motion.div>
         </div>
       </section>
@@ -193,11 +179,11 @@ export default function Home() {
 
             <motion.div className="space-y-12" variants={fadeInUp}>
               <div className="space-y-2">
-                <TransformationCarousel items = {transformationItems} />
+                <TransformationCarousel items={transformationItems} />
               </div>
 
               {/* WhatsApp Testimonials Section */}
-              <div className="space-y-8">
+              <div className="space-y-8 ">
                 <motion.div className="text-center" variants={fadeInUp}>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Lo que dicen mis clientes</h3>
                   <p className="text-gray-600 max-w-2xl mx-auto">
@@ -206,7 +192,7 @@ export default function Home() {
                   </p>
                 </motion.div>
                 <div className="flex justify-center px-4 md:px-0">
-                  <WhatsAppCarousel Messages={testimonialsMessages}
+                  <WhatsAppCarousel Messages={testimonialChats}
                   />
                 </div>
               </div>
@@ -226,7 +212,7 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.div className="space-y-6 mb-10" variants={fadeInUp}>
-              <h2 className="text-3xl md:text-4xl font-bold">
+              <h2 className="text-2xl md:text-4xl font-bold">
                 Tomá el primer paso para lograr el cambio físico que soñas, y agenda tu videollamada gratuita HOY
               </h2>
               <p className="text-gray-300">
@@ -236,13 +222,13 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <motion.div className="bg-white rounded-xl p-8 shadow-2xl" variants={fadeInUp}>
+            <motion.div className="bg-white rounded-xl p-4 shadow-2xl" variants={fadeInUp}>
               <h3 className="text-gray-800 text-xl font-bold mb-6">Esta llamada es ideal para vos si:</h3>
 
               <ul className="space-y-4 text-left mb-8">
                 {[
                   "Queres cambiar tu cuerpo y estilo de vida de una vez y para siempre",
-                  "Crees no tener tiempo pero si ganas de alcanzar tus objtivos",
+                  "Crees no tener tiempo pero si ganas de alcanzar tus objetivos",
                   "Estas realmente comprometido/a con el cambio",
                   "Queres sentirte bien, saludable y con energía",
                 ].map((item, index) => (
@@ -261,22 +247,16 @@ export default function Home() {
               </ul>
 
               <div className="bg-gray-100 p-2 rounded-lg">
-               {/*  <div className="flex items-center justify-center gap-3 mb-4">
-                  <Calendar className="h-6 w-6 text-emerald-500" />
-                  <h4 className="text-gray-800 font-bold">CALENDLY</h4>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">
-                  Selecciona una fecha y hora que te convenga para tu sesión gratuita de consulta
-                </p>
-                Placeholder for Calendly integration */}
-                
                 <div
                   className="calendly-inline-widget"
                   data-url="https://calendly.com/luchocolombotraining/llamada-gratuita"
-                  style={{ height: '67rem' }}
+                  style={{
+                    height: "80vh", // altura por defecto (desktop)
+                  }}
                 ></div>
-                </div>
-              
+              </div>
+
+
             </motion.div>
           </motion.div>
         </div>

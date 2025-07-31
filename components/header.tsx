@@ -41,7 +41,7 @@ export default function Header() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <Image src={`${isScrolled ? "/logo-negro.png" : "/logo.png"}`} alt="Lucho Colombo Logo" width={180} height={50} className={`h-20 w-auto transition-all duration-300`} />
+            <Image src={`${isScrolled ? "/logo-negro.png" : "/logo.png"}`} alt="Lucho Colombo Logo" width={180} height={50} className={`h-10 w-auto transition-all duration-300`} />
           </Link>
 
           {/* Desktop Navigation */}
