@@ -44,7 +44,7 @@ export default function Home() {
 
   const wordVariants = {
     hidden: { color: "#ffffffff", fontWeight: 400 }, // gris normal
-    visible: { color: "#ffffffff", fontWeight: 700, backgroundColor: "#10b98185" }, // verde esmeralda y bold
+    visible: { color: "rgba(32, 255, 181, 1)", fontWeight: 700 }, // verde esmeralda y bold
   }
 
   return (
@@ -59,7 +59,7 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.div className="lg:w-1/2 space-y-6" variants={fadeInUp}>
-              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
                 ¿Sos un trabajador ocupado que busca{" "}
                 <motion.span
                   variants={wordVariants}
@@ -74,7 +74,7 @@ export default function Home() {
                 En solo 12 semanas, transforma tu cuerpo con un plan 100% personalizado que se adapta a tu cuerpo y
                 estilo de vida. Sin dietas estrictas ni horas interminables en el gimnasio.
               </p>
-              <motion.div className="hidden lg:block" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div className="hidden lg:block" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   size="lg"
                   className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-6 text-lg"
@@ -95,8 +95,8 @@ export default function Home() {
                   <Image
                     src="/PORTADA-VSL.jpg"
                     alt="Video thumbnail"
-                    width={300}
-                    height={350}
+                    width={1920}
+                    height={1080}
                     className="object-cover"
                   />
                   <motion.button
@@ -142,14 +142,14 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.div
-              className="lg:w-1/3 relative aspect-square w-full max-w-md rounded-xl overflow-hidden shadow-xl"
+              className="lg:w-1/3 relative w-full max-w-md rounded-xl overflow-hidden shadow-xl"
               variants={fadeInUp}
             >
               <Image
-                src="/about-me.jpg?height=600&width=600"
+                src="/about-me.jpg?height=1080&width=1350"
                 alt="Luciano Colombo"
-                width={600}
-                height={600}
+                width={1350}
+                height={1080}
                 className="w-full h-full object-cover"
               />
             </motion.div>
