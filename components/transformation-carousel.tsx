@@ -88,9 +88,7 @@ export function TransformationCarousel({ items }: TransformationCarouselProps) {
             {items[current].weeks} semanas
           </span> */}
         </div>
-        {/* <p className="text-gray-700">{items[current].description}</p>*/}
       </div> 
-    
 
       <div className="absolute top-1/3 transform -translate-y-1/2 left-4">
         <button

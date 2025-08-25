@@ -25,7 +25,6 @@ export default function Header() {
     }
   }, [])
 
-  // Update the navItems array to include the Cambios section and reorder FAQ to be last
   const navItems = [
     { name: "Sobre Mi", href: "#about" },
     { name: "Cambios", href: "#cambios" },
