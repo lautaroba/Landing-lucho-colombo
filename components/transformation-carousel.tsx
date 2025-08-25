@@ -84,9 +84,9 @@ export function TransformationCarousel({ items }: TransformationCarouselProps) {
       <div className="bg-white rounded-lg shadow-lg p-6 mt-4 max-w-md md:max-w-2xl mx-auto">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xl font-bold">{items[current].name}</h3>
-          <span className="bg-emerald-100 text-emerald-800 text-sm font-medium px-3 py-1 rounded-full">
+          {/* <span className="bg-emerald-100 text-emerald-800 text-sm font-medium px-3 py-1 rounded-full">
             {items[current].weeks} semanas
-          </span>
+          </span> */}
         </div>
         {/* <p className="text-gray-700">{items[current].description}</p>*/}
       </div> 

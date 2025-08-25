@@ -170,7 +170,7 @@ export default function Home() {
           >
             <motion.div className="text-center mb-12" variants={fadeInUp}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Con +10 años de experiencia, he ayudado a +120 personas a lograr su cambio físico y alcanzar sus
+                Con +5 años de experiencia, he ayudado a +120 personas a lograr su cambio físico y alcanzar sus
                 objetivos
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">Estas son algunas que lo lograron</p>
